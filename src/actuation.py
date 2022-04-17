@@ -7,7 +7,7 @@ from utils import modifyBit
 
 # map midi note values to binary shift values for shift registers
 # here format() is used to convert the int to binary 
-midi2sol = {str(i + 64) : format(1 << i, 'b') for i in range(num_of_solenoids)} # 64 -> middle C 
+midi2sol = {str(i + 60) : format(1 << i, 'b') for i in range(num_of_solenoids)} # 60 -> middle C 
 
 temp = ''
 sol_state = temp.zfill(num_of_solenoids)
