@@ -7,6 +7,7 @@ from utils import modifyBit
 
 # map midi note values to binary shift values for shift registers
 # here format() is used to convert the int to binary 
+
 midi2sol = {str(i + 60) : format(1 << i, 'b') for i in range(num_of_solenoids)} # 60 -> middle C
 
 
@@ -34,17 +35,17 @@ def activate_solenoid(note : int, state: bool):
         GPIO.output(CLOCK, 0)
     GPIO.output(LATCH, 1)
         
-	
+    
 
 def activate_pump(cc : int):
-	if cc < 0:
-		cc == 0
-	elif cc > 127:
-		cc == 127
-	else:
-		voltage = int(np.interp(cc, cc_range, voltage_range))
-		GPIO.output(PUMP, voltage)
-		
+    if cc < 0:
+        cc == 0
+    elif cc > 127:
+        cc == 127
+    else:
+        voltage = int(np.interp(cc, cc_range, voltage_range))
+        GPIO.output(PUMP, voltage)
+        
 
 def reset_solenoids():
     a = ''
@@ -59,9 +60,9 @@ def reset_solenoids():
     
 
 def reset_pump():
-	activate_pump(0)
+    activate_pump(0)
 
 
 
 
-	
+    
