@@ -1,7 +1,7 @@
 from zeroconf import ServiceInfo, Zeroconf
 from pymidi import server
 import socket, fcntl, struct
-from .actuation import reset_pump, reset_solenoids
+from actuation import reset_pump, reset_solenoids
 
 class RtpMidi(object):
     def __init__(self, robot_name: str, handler: server.Handler, port: int = 5004):

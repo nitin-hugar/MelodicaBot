@@ -1,13 +1,13 @@
 #classes and functions for actuation of solenoid, pump
-from .config import *
+from config import *
 import RPi.GPIO as GPIO
 import numpy as np
-from .utils import modifyBit
+from utils import modifyBit
 
 
 # map midi note values to binary shift values for shift registers
 # here format() is used to convert the int to binary 
-midi2sol = {i + 64 : format(1 << i, 'b') for i in range(num_of_solenoids)} # 64 -> middle C 
+midi2sol = {str(i + 64) : format(1 << i, 'b') for i in range(num_of_solenoids)} # 64 -> middle C 
 
 temp = ''
 sol_state = temp.zfill(num_of_solenoids)
@@ -16,7 +16,7 @@ sol_state = temp.zfill(num_of_solenoids)
 def activate_solenoid(note : int, state: bool):
 	global sol_state
 
-	value = midi2sol(note)
+	value = midi2sol[str(note)]
 	bit_index = value[::-1].index('1')
 
 	if state:

@@ -1,6 +1,6 @@
 #helper class for reading and parsing midi files
 import pretty_midi
-import pandas as pd
+#import pandas as pd
 from time import sleep
 
 def modifyBit( num,  bit_pos, val):
