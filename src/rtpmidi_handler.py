@@ -20,13 +20,13 @@ class MyHandler(server.Handler):
             if command.command == 'note_on':
                 key = command.params.key
                 midi_note = MidiNotes[key].value[0]
-                print('key {} -> on'.format(key))
+                #print('key {} -> on'.format(key))
                 activate_solenoid(midi_note, True)
 
             elif command.command == 'note_off':
                 key = command.params.key
                 midi_note = MidiNotes[key].value[0]
-                print('key {} -> off'.format(key))
+                #print('key {} -> off'.format(key))
                 activate_solenoid(midi_note, False)
             
             elif command.command == 'control_mode_change':

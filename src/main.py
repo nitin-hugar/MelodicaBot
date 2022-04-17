@@ -10,6 +10,7 @@ import RPi.GPIO as GPIO
 from config import DATA, LATCH, CLOCK, PUMP
 from pymidi.packets import MIDINote
 from midi_map import MidiNotes
+from actuation import reset_solenoids, reset_pump
 
 # TODO : MAKE A FOOLPROOF FOR POLYPHONY MORE THAN 4
 # TODO : Handle note ranges
@@ -28,7 +29,8 @@ if __name__ == '__main__':
     # initialize raspberry pi
     
     setup()
-
+    reset_solenoids()   
+    reset_pump()
     # initialize midi server
     ROBOT = "Your Robot"
     PORT = 5004
