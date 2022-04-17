@@ -33,7 +33,7 @@ if __name__ == '__main__':
     reset_pump()
     # initialize midi server
     ROBOT = "Your Robot"
-    PORT = 5004
+    PORT = 5000
     rtp_midi = RtpMidi(ROBOT, MyHandler(), PORT)
     rtp_midi.run()
 

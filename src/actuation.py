@@ -47,14 +47,16 @@ def activate_pump(cc : int):
 		
 
 def reset_solenoids():
-	a = ''
-	a.zfill(num_of_solenoids)
-	GPIO.output(LATCH, 0)
-	for i in a:
-		GPIO.output(DATA, int(i))
-		GPIO.output(CLOCK, 1)
-		GPIO.output(CLOCK, 0)
-	GPIO.output(LATCH, 1)
+    a = ''
+    a = a.zfill(num_of_solenoids)
+    GPIO.output(LATCH, 0)
+    for i in a:
+        GPIO.output(DATA, int(i))
+        GPIO.output(CLOCK, 1)
+        GPIO.output(CLOCK, 0)
+    GPIO.output(LATCH, 1)
+    print(" >> Solenoids Reset")
+    
 
 def reset_pump():
 	activate_pump(0)
